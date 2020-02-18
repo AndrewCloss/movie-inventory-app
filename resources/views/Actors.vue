@@ -16,6 +16,10 @@
                 <router-link :to="`/actors/${actor.id}/edit`">Edit</router-link>
             </li>
         </ul>
+
+        <div>
+            <router-link :to="{ name: 'actors.create' }">Add Actor</router-link>
+        </div>
     </div>
 </template>
 <script>

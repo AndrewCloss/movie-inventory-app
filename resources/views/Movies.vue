@@ -19,6 +19,10 @@
                 <router-link :to="`/movies/${movie.id}/edit`">Edit</router-link>
             </li>
         </ul>
+
+        <div>
+            <router-link :to="{ name: 'movies.create' }">Add Movie</router-link>
+        </div>
     </div>
 </template>
 <script>

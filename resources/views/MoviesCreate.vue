@@ -1,8 +1,8 @@
 <template>
     <div>
+        <h1>Create a Movie</h1>
         <div v-if="message" class="alert">{{ message }}</div>
-        <div v-if="!loaded">Loading...</div>
-        <form @submit.prevent="onSubmit($event)" v-else>
+        <form @submit.prevent="onSubmit($event)">
             <div class="form-group">
                 <label for="movie_title">Title</label>
                 <input id="movie_title" v-model="movie.title" />
@@ -33,8 +33,12 @@
 
             <div class="form-group">
                 <button><router-link :to="{ name: 'movies' }">Back</router-link></button>
-                <button type="submit" :disabled="saving">Update</button>
-                <button :disabled="saving" @click.prevent="onDelete($event)">Delete</button>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" :disabled="saving">
+                  {{ saving ? 'Creating...' : 'Create' }}
+              </button>
             </div>
         </form>
     </div>
@@ -45,11 +49,9 @@ import api from '../js/api/movies';
 export default {
     data() {
         return {
-            message: null,
-            loaded: false,
+            message: false,
             saving: false,
             movie: {
-                id: null,
                 title: "",
                 release_date: "",
                 description: "",
@@ -58,50 +60,31 @@ export default {
         };
     },
   methods: {
-    onDelete() {
-        this.saving = true;
-        api.delete(this.movie.id)
+    onSubmit($event) {
+        this.saving = true
+        this.message = false
+        api.create(this.movie)
         .then((response) => {
-            this.message = 'Movie Deleted';
-            setTimeout(() => this.$router.push({ name: 'movies' }), 2000);
-        }).catch(error => {
-            console.log(error)
-        }).then(_ => this.saving = false);
-    },
-    onSubmit(event) {
-        this.saving = true;
-
-        api.update(this.movie.id, {
-            title: this.movie.title,
-            release_date: this.movie.release_date,
-            description: this.movie.description,
-            genre_type: this.movie.genre_type
-        }).then((response) => {
-            this.message = 'Movie updated';
-                setTimeout(() => this.$router.push({ name: 'movies' }), 2000);
-            this.movie = response.data.data;
-        }).catch(error => {
-            console.log(error)
-        }).then(_ => this.saving = false);
-    }
-  },
-    created() {
-        api.find(this.$route.params.id)
-        .then((response) => {
-            this.loaded = true;
-            this.movie = response.data.data;
+            this.message = 'Movie Created';
+            setTimeout(() => this.$router.push({ name: 'movies.edit', params: { id: response.data.data.id } }), 2000);
         })
-        .catch((err) => {
-            this.$router.push({ name: '404' });
-        });
+        .catch((e) => {
+            this.message = e.response.data.message || 'There was an issue creating the movie.';
+        })
+        .then(() => this.saving = false);
     }
+  }
 };
 </script>
 <style lang="scss" scoped>
 $red: lighten(red, 30%);
 $darkRed: darken($red, 50%);
-.form-group label {
-  display: block;
+
+.form-group {
+    margin-bottom: 1em;
+    label {
+        display: block;
+    }
 }
 .alert {
     background: $red;

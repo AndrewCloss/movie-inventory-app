@@ -35,4 +35,15 @@ class ActorsController extends Controller
 
         return response(null, 204);
     }
+
+    public function create(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required'
+        ]);
+
+        return new ActorResource(Actor::create([
+            'name' => $data['name']
+        ]));
+    }
 }

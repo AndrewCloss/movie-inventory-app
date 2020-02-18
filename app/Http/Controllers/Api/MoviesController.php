@@ -9,18 +9,6 @@ use App\Http\Resources\MovieResource;
 
 class MoviesController extends Controller
 {
-    // public function create($Request request)
-    // {
-    //     $crud               = new Movies();
-    //     $crud->title        = $request->title;
-    //     $crud->release_date = $request->release_date;
-    //     $crud->decription   = $request->description;
-    //     $crud->genre_type   = $request->genre_type;
-    //     $crud->save();
-    
-    //     return response($crud->jsonSerialize(), Response::HTTP_CREATED);
-    // }
-
     public function index()
     {
         return MovieResource::collection(Movie::paginate(5));
@@ -49,5 +37,22 @@ class MoviesController extends Controller
         $movie->delete();
 
         return response(null, 204);
+    }
+
+    public function create(Request $request)
+    {
+        $data = $request->validate([        
+            'title'        => 'required',
+            'release_date' => 'required',
+            'description'   => 'required',
+            'genre_type'   => 'required',
+        ]);
+
+        return new MovieResource(Movie::create([
+            'title' => $data['title'],
+            'release_date' => $data['release_date'],
+            'description' => $data['description'],
+            'genre_type' => $data['genre_type'],
+        ]));
     }
 }

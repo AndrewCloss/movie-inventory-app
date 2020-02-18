@@ -13,4 +13,7 @@ export default {
     delete(id, data) {
         return axios.delete(`/api/movies/${id}`, data);
     },
+    create(data) {
+        return axios.post(`/api/movies`, data);
+    }
 };

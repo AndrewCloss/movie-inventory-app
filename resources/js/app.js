@@ -9,6 +9,8 @@ import Movies from '../views/Movies'
 import Actors from '../views/Actors'
 import MoviesEdit from '../views/MoviesEdit'
 import ActorsEdit from '../views/ActorsEdit'
+import MoviesCreate from '../views/MoviesCreate'
+import ActorsCreate from '../views/ActorsCreate'
 import PageNotFound from '../views/PageNotFound'
 
 const router = new VueRouter({
@@ -30,6 +32,11 @@ const router = new VueRouter({
             component: MoviesEdit,
         },
         {
+            path: '/movies/create',
+            name: 'movies.create',
+            component: MoviesCreate
+        },
+        {
             path: '/actors',
             name: 'actors',
             component: Actors,
@@ -38,6 +45,11 @@ const router = new VueRouter({
             path: '/actors/:id/edit',
             name: 'actors.edit',
             component: ActorsEdit,
+        },
+        {
+            path: '/actors/create',
+            name: 'actors.create',
+            component: ActorsCreate
         },
         { 
             path: '/404', 
