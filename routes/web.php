@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/{any}', 'MovieController@index')->where('any', '.*');
+// Route::get('/{any}', 'MoviesController@index')->where('any', '.*');
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('spa');
+});
