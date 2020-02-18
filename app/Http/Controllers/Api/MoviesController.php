@@ -23,19 +23,26 @@ class MoviesController extends Controller
 
     public function index()
     {
-        return MovieResource::collection(Movie::paginate(10));
+        return MovieResource::collection(Movie::paginate(5));
     }
 
-    // public function update(Request $request, $id)
-    // {
-    //     $crud               = Movies::findOrFail($id);
-    //     $crud->title        = $request->title;
-    //     $crud->release_date = $request->release_date;
-    //     $crud->decription   = $request->description;
-    //     $crud->genre_type   = $request->genre_type;
+    public function show(Movie $movie)
+    {
+        return new MovieResource($movie);
+    }
 
-    //     return response(null, Response::HTTP_OK);
-    // }
+    public function update(Movie $movie, Request $request)
+    {
+        $data = $request->validate([
+            'title'        => 'required',
+            'release_date' => 'required',
+            'description'   => 'required',
+            'genre_type'   => 'required'
+        ]);
+        $movie->update($data);
+
+        return new MovieResource($movie);
+    }
 
     // public function destroy($id)
     // {

@@ -13,6 +13,6 @@
 
 // Route::get('/{any}', 'MoviesController@index')->where('any', '.*');
 
-Route::get('/', function () {
+Route::get('/{any}', function () {
     return view('spa');
-});
+})->where('any', '.*');

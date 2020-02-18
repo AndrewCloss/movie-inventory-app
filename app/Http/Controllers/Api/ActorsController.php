@@ -13,4 +13,19 @@ class ActorsController extends Controller
     {
         return ActorResource::collection(Actor::paginate(5));
     }
+
+    public function show(Actor $actor)
+    {
+        return new ActorResource($actor);
+    }
+
+    public function update(Actor $actor, Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required'
+        ]);
+        $actor->update($data);
+
+        return new ActorResource($actor);
+    }
 }
