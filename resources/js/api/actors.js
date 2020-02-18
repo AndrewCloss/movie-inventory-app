@@ -10,4 +10,7 @@ export default {
     update(id, data) {
         return axios.put(`/api/actors/${id}`, data);
     },
+    delete(id, data) {
+        return axios.delete(`/api/actors/${id}`, data);
+    },
 };

@@ -10,10 +10,8 @@
 
             <div class="form-group">
                 <button><router-link :to="{ name: 'actors' }">Back</router-link></button>
-            </div>
-
-            <div class="form-group">
                 <button type="submit" :disabled="saving">Update</button>
+                <button :disabled="saving" @click.prevent="onDelete($event)">Delete</button>
             </div>
         </form>
     </div>
@@ -34,6 +32,16 @@ export default {
         };
     },
     methods: {
+        onDelete() {
+            this.saving = true;
+            api.delete(this.actor.id)
+            .then((response) => {
+                this.message = 'Actor Deleted';
+                setTimeout(() => this.$router.push({ name: 'actors' }), 2000);
+            }).catch(error => {
+                console.log(error)
+            }).then(_ => this.saving = false);
+        },
         onSubmit(event) {
             this.saving = true;
 
@@ -46,12 +54,24 @@ export default {
             }).catch(error => {
                 console.log(error)
             }).then(_ => this.saving = false);
+        },
+        onDelete() {
+            this.saving = true;
+
+            api.delete(this.actor.id)
+                .then((response) => {
+                    this.message = 'User Deleted';
+                    setTimeout(() => this.$router.push({ name: 'actors' }), 2000)
+                });
         }
     },
     created() {
         api.find(this.$route.params.id).then((response) => {
             this.loaded = true;
             this.actor = response.data.data;
+        })
+        .catch((err) => {
+            this.$router.push({ name: '404' });
         });
     }
 };

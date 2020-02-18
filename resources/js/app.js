@@ -9,6 +9,7 @@ import Movies from '../views/Movies'
 import Actors from '../views/Actors'
 import MoviesEdit from '../views/MoviesEdit'
 import ActorsEdit from '../views/ActorsEdit'
+import PageNotFound from '../views/PageNotFound'
 
 const router = new VueRouter({
     mode: 'history',
@@ -37,6 +38,15 @@ const router = new VueRouter({
             path: '/actors/:id/edit',
             name: 'actors.edit',
             component: ActorsEdit,
+        },
+        { 
+            path: '/404', 
+            name: '404', 
+            component: PageNotFound 
+        },
+        { 
+            path: '*', 
+            redirect: '/404' 
         }
     ],
 });

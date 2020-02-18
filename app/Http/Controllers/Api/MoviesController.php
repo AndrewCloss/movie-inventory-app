@@ -44,10 +44,10 @@ class MoviesController extends Controller
         return new MovieResource($movie);
     }
 
-    // public function destroy($id)
-    // {
-    //     Movies::destroy($id);
+    public function destroy(Movie $movie)
+    {
+        $movie->delete();
 
-    //     return response(null, Response::HTTP_OK);
-    // }
+        return response(null, 204);
+    }
 }

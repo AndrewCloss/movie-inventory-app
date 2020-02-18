@@ -10,4 +10,7 @@ export default {
     update(id, data) {
         return axios.put(`/api/movies/${id}`, data);
     },
+    delete(id, data) {
+        return axios.delete(`/api/movies/${id}`, data);
+    },
 };

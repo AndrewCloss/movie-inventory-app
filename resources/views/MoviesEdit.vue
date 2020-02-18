@@ -37,6 +37,7 @@
 
             <div class="form-group">
                 <button type="submit" :disabled="saving">Update</button>
+                <button :disabled="saving" @click.prevent="onDelete($event)">Delete</button>
             </div>
         </form>
     </div>
@@ -60,6 +61,16 @@ export default {
         };
     },
   methods: {
+    onDelete() {
+        this.saving = true;
+        api.delete(this.movie.id)
+        .then((response) => {
+            this.message = 'Movie Deleted';
+            setTimeout(() => this.$router.push({ name: 'movies' }), 2000);
+        }).catch(error => {
+            console.log(error)
+        }).then(_ => this.saving = false);
+    },
     onSubmit(event) {
         this.saving = true;
 
@@ -78,9 +89,13 @@ export default {
     }
   },
     created() {
-        api.find(this.$route.params.id).then((response) => {
+        api.find(this.$route.params.id)
+        .then((response) => {
             this.loaded = true;
             this.movie = response.data.data;
+        })
+        .catch((err) => {
+            this.$router.push({ name: '404' });
         });
     }
 };

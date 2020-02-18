@@ -28,4 +28,11 @@ class ActorsController extends Controller
 
         return new ActorResource($actor);
     }
+
+    public function destroy(Actor $actor)
+    {
+        $actor->delete();
+
+        return response(null, 204);
+    }
 }
