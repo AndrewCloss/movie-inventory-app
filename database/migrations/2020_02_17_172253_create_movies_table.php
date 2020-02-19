@@ -21,7 +21,7 @@ class CreateMoviesTable extends Migration
             $table->date('release_date');
             $table->text('description');
             $table->enum('genre_type', ['horror', 'comedy', 'scifi', 'romance',
-            'action', 'drama', 'documentary', 'crime']);
+            'action', 'drama', 'documentary', 'crime', 'fantasy']);
         });
     }
 

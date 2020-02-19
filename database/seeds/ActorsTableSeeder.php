@@ -22,5 +22,21 @@ class ActorsTableSeeder extends Seeder
         App\Actor::create([
             'name' => 'Harrison Ford'
         ]);
+
+        App\Actor::create([
+            'name' => 'Elijah Wood'
+        ]);
+
+        App\Actor::create([
+            'name' => 'Orlando Bloom & Onion'
+        ]);
+
+        App\Actor::create([
+            'name' => 'Viggo Mortensen'
+        ]);
+
+        App\Actor::create([
+            'name' => 'Ian McKellen'
+        ]);
     }
 }

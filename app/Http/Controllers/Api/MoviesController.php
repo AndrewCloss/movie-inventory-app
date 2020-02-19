@@ -11,7 +11,7 @@ class MoviesController extends Controller
 {
     public function index()
     {
-        return MovieResource::collection(Movie::paginate(5));
+        return MovieResource::collection(Movie::all());
     }
 
     public function show(Movie $movie)
