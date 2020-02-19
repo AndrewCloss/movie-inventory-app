@@ -59,7 +59,7 @@ export default {
                 setTimeout(() => this.$router.push({ name: 'actors' }), 2000);
                 this.actor = response.data.data;
             }).catch(error => {
-                this.message = 'There was an issue creating the actor, check your inputs.';
+                this.message = 'There was an issue editing the actor, check your inputs.';
             }).then(_ => this.saving = false);
         },
         onDelete() {

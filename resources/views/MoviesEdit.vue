@@ -89,7 +89,7 @@ export default {
                 setTimeout(() => this.$router.push({ name: 'movies' }), 2000);
             this.movie = response.data.data;
         }).catch(error => {
-            this.message = 'There was an issue creating the movie, check your inputs.';
+            this.message = 'There was an issue editing the movie, check your inputs.';
         }).then(_ => this.saving = false);
     }
   },

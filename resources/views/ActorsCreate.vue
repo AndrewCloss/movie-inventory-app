@@ -47,7 +47,7 @@ export default {
             setTimeout(() => this.$router.push({ name: 'actors.edit', params: { id: response.data.data.id } }), 2000);
         })
         .catch((e) => {
-            this.message = e.response.data.message || 'There was an issue creating the actor.';
+            this.message = 'There was an issue creating the actor, check your inputs.';
         })
         .then(() => this.saving = false)
     }

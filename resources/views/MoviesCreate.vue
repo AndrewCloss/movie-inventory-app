@@ -74,7 +74,7 @@ export default {
             setTimeout(() => this.$router.push({ name: 'movies.edit', params: { id: response.data.data.id } }), 2000);
         })
         .catch((e) => {
-            this.message = e.response.data.message || 'There was an issue creating the movie.';
+            this.message = 'There was an issue creating the movie, check your inputs.';
         })
         .then(() => this.saving = false);
     }

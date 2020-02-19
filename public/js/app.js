@@ -2090,7 +2090,7 @@ __webpack_require__.r(__webpack_exports__);
           });
         }, 2000);
       })["catch"](function (e) {
-        _this.message = e.response.data.message || 'There was an issue creating the actor.';
+        _this.message = 'There was an issue creating the actor, check your inputs.';
       }).then(function () {
         return _this.saving = false;
       });
@@ -2183,7 +2183,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, 2000);
         _this2.actor = response.data.data;
       })["catch"](function (error) {
-        _this2.message = 'There was an issue creating the actor, check your inputs.';
+        _this2.message = 'There was an issue editing the actor, check your inputs.';
       }).then(function (_) {
         return _this2.saving = false;
       });
@@ -2474,7 +2474,7 @@ __webpack_require__.r(__webpack_exports__);
           });
         }, 2000);
       })["catch"](function (e) {
-        _this.message = e.response.data.message || 'There was an issue creating the movie.';
+        _this.message = 'There was an issue creating the movie, check your inputs.';
       }).then(function () {
         return _this.saving = false;
       });
@@ -2595,7 +2595,7 @@ __webpack_require__.r(__webpack_exports__);
         }, 2000);
         _this2.movie = response.data.data;
       })["catch"](function (error) {
-        _this2.message = 'There was an issue creating the movie, check your inputs.';
+        _this2.message = 'There was an issue editing the movie, check your inputs.';
       }).then(function (_) {
         return _this2.saving = false;
       });
