@@ -80,17 +80,19 @@ export default {
     },
     methods: {
         onDelete() {
-            this.saving = true;
-            this.moviesToDelete.forEach(element => {
-               api.delete(element.id)
-                .then((response) => {
-                    this.moviesToDelete.splice(this.moviesToDelete.indexOf(element), 1);
-                    this.message = 'Movie Deleted';
-                    setTimeout(() => this.message = null, 2000);
-                }).catch(error => {
-                    console.log(error);
-                }).then(_ => this.saving = false);
-            });
+            if (this.moviesToDelete.length > 0) {
+                this.saving = true;
+                this.moviesToDelete.forEach(element => {
+                api.delete(element.id)
+                    .then((response) => {
+                        this.moviesToDelete.splice(this.moviesToDelete.indexOf(element), 1);
+                        this.message = 'Movie Deleted';
+                        setTimeout(() => this.message = null, 2000);
+                    }).catch(error => {
+                        console.log(error);
+                    }).then(_ => this.saving = false);
+                });
+            }
         },
         fetchData() {
             this.error = this.movies = null;

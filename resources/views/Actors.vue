@@ -77,17 +77,19 @@ export default {
     },
     methods: {
         onDelete() {
-            this.saving = true;
-            this.actorsToDelete.forEach(element => {
-               api.delete(element.id)
-                .then((response) => {
-                    this.actorsToDelete.splice(this.actorsToDelete.indexOf(element), 1);
-                    this.message = 'Actor Deleted';
-                    setTimeout(() => this.message = null, 2000);
-                }).catch(error => {
-                    console.log(error);
-                }).then(_ => this.saving = false);
-            });
+            if (this.actorsToDelete.length > 0) {
+                this.saving = true;
+                this.actorsToDelete.forEach(element => {
+                api.delete(element.id)
+                    .then((response) => {
+                        this.actorsToDelete.splice(this.actorsToDelete.indexOf(element), 1);
+                        this.message = 'Actor Deleted';
+                        setTimeout(() => this.message = null, 2000);
+                    }).catch(error => {
+                        console.log(error);
+                    }).then(_ => this.saving = false);
+                });
+            }
         },
         fetchData() {
             this.error = this.actors = null;

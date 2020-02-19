@@ -1990,21 +1990,23 @@ __webpack_require__.r(__webpack_exports__);
     onDelete: function onDelete() {
       var _this2 = this;
 
-      this.saving = true;
-      this.actorsToDelete.forEach(function (element) {
-        _js_api_actors__WEBPACK_IMPORTED_MODULE_1__["default"]["delete"](element.id).then(function (response) {
-          _this2.actorsToDelete.splice(_this2.actorsToDelete.indexOf(element), 1);
+      if (this.actorsToDelete.length > 0) {
+        this.saving = true;
+        this.actorsToDelete.forEach(function (element) {
+          _js_api_actors__WEBPACK_IMPORTED_MODULE_1__["default"]["delete"](element.id).then(function (response) {
+            _this2.actorsToDelete.splice(_this2.actorsToDelete.indexOf(element), 1);
 
-          _this2.message = 'Actor Deleted';
-          setTimeout(function () {
-            return _this2.message = null;
-          }, 2000);
-        })["catch"](function (error) {
-          console.log(error);
-        }).then(function (_) {
-          return _this2.saving = false;
+            _this2.message = 'Actor Deleted';
+            setTimeout(function () {
+              return _this2.message = null;
+            }, 2000);
+          })["catch"](function (error) {
+            console.log(error);
+          }).then(function (_) {
+            return _this2.saving = false;
+          });
         });
-      });
+      }
     },
     fetchData: function fetchData() {
       var _this3 = this;
@@ -2345,21 +2347,23 @@ __webpack_require__.r(__webpack_exports__);
     onDelete: function onDelete() {
       var _this2 = this;
 
-      this.saving = true;
-      this.moviesToDelete.forEach(function (element) {
-        _js_api_movies__WEBPACK_IMPORTED_MODULE_1__["default"]["delete"](element.id).then(function (response) {
-          _this2.moviesToDelete.splice(_this2.moviesToDelete.indexOf(element), 1);
+      if (this.moviesToDelete.length > 0) {
+        this.saving = true;
+        this.moviesToDelete.forEach(function (element) {
+          _js_api_movies__WEBPACK_IMPORTED_MODULE_1__["default"]["delete"](element.id).then(function (response) {
+            _this2.moviesToDelete.splice(_this2.moviesToDelete.indexOf(element), 1);
 
-          _this2.message = 'Movie Deleted';
-          setTimeout(function () {
-            return _this2.message = null;
-          }, 2000);
-        })["catch"](function (error) {
-          console.log(error);
-        }).then(function (_) {
-          return _this2.saving = false;
+            _this2.message = 'Movie Deleted';
+            setTimeout(function () {
+              return _this2.message = null;
+            }, 2000);
+          })["catch"](function (error) {
+            console.log(error);
+          }).then(function (_) {
+            return _this2.saving = false;
+          });
         });
-      });
+      }
     },
     fetchData: function fetchData() {
       var _this3 = this;
