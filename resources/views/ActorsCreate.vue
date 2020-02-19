@@ -1,7 +1,9 @@
 <template>
     <div>
         <h1>Create an Actor</h1>
-        <div v-if="message" class="alert alert-danger" role="alert">{{ message }}</div>
+        <div class="row">
+            <div v-if="message" class="alert alert-danger" role="alert" style="width:100%;">{{ message }}</div>
+        </div>
         <form @submit.prevent="onSubmit($event)" class="jumbotron">
             <div class="row">
                 <div class="form-group col-sm-12">
@@ -41,7 +43,7 @@ export default {
         this.message = false
         api.create(this.actor)
         .then((response) => {
-            this.message = 'Actor Created';
+            this.message = 'Actor created. You will be redirected to the edit page.';
             setTimeout(() => this.$router.push({ name: 'actors.edit', params: { id: response.data.data.id } }), 2000);
         })
         .catch((e) => {

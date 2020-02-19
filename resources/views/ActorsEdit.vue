@@ -1,6 +1,8 @@
 <template>
     <div>
-        <div v-if="message" class="alert alert-danger" role="alert">{{ message }}</div>
+        <div class="row">
+            <div v-if="message" class="alert alert-danger" role="alert" style="width:100%;">{{ message }}</div>
+        </div>
         <div v-if="!loaded">Loading...</div>
         <form @submit.prevent="onSubmit($event)" v-else class="jumbotron">
             <div class="row">
@@ -52,7 +54,7 @@ export default {
             api.update(this.actor.id, {
                 name: this.actor.name
             }).then((response) => {
-                this.message = 'Actor updated';
+                this.message = 'Actor updated. You will be redirected back to the index.';
                 setTimeout(() => this.$router.push({ name: 'actors' }), 2000);
                 this.actor = response.data.data;
             }).catch(error => {
@@ -64,7 +66,7 @@ export default {
 
             api.delete(this.actor.id)
                 .then((response) => {
-                    this.message = 'User Deleted';
+                    this.message = 'User deleted. You will be redirected back to the index.';
                     setTimeout(() => this.$router.push({ name: 'actors' }), 2000)
                 });
         }

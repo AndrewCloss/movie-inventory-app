@@ -1,6 +1,8 @@
 <template>
     <div>
-        <div v-if="message" class="alert alert-danger" role="alert">{{ message }}</div>
+        <div class="row">
+            <div v-if="message" class="alert alert-danger" role="alert" style="width:100%;">{{ message }}</div>
+        </div>
         <div v-if="!loaded">Loading...</div>
         <form @submit.prevent="onSubmit($event)" v-else class="jumbotron">
             <div class="row">
@@ -67,7 +69,7 @@ export default {
         this.saving = true;
         api.delete(this.movie.id)
         .then((response) => {
-            this.message = 'Movie Deleted';
+            this.message = 'Movie deleted. You will be redirected back to the index';
             setTimeout(() => this.$router.push({ name: 'movies' }), 2000);
         }).catch(error => {
             console.log(error)
@@ -82,7 +84,7 @@ export default {
             description: this.movie.description,
             genre_type: this.movie.genre_type
         }).then((response) => {
-            this.message = 'Movie updated';
+            this.message = 'Movie updated. You will be redirected back to the index.';
                 setTimeout(() => this.$router.push({ name: 'movies' }), 2000);
             this.movie = response.data.data;
         }).catch(error => {

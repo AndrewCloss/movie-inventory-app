@@ -2015,6 +2015,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2034,7 +2036,7 @@ __webpack_require__.r(__webpack_exports__);
       this.saving = true;
       this.message = false;
       _js_api_actors__WEBPACK_IMPORTED_MODULE_0__["default"].create(this.actor).then(function (response) {
-        _this.message = 'Actor Created';
+        _this.message = 'Actor created. You will be redirected to the edit page.';
         setTimeout(function () {
           return _this.$router.push({
             name: 'actors.edit',
@@ -2066,6 +2068,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_api_actors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/api/actors */ "./resources/js/api/actors.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
 //
 //
 //
@@ -2126,7 +2130,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       _js_api_actors__WEBPACK_IMPORTED_MODULE_0__["default"].update(this.actor.id, {
         name: this.actor.name
       }).then(function (response) {
-        _this2.message = 'Actor updated';
+        _this2.message = 'Actor updated. You will be redirected back to the index.';
         setTimeout(function () {
           return _this2.$router.push({
             name: 'actors'
@@ -2144,7 +2148,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
     this.saving = true;
     _js_api_actors__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"](this.actor.id).then(function (response) {
-      _this3.message = 'User Deleted';
+      _this3.message = 'User deleted. You will be redirected back to the index.';
       setTimeout(function () {
         return _this3.$router.push({
           name: 'actors'
@@ -2359,6 +2363,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2380,7 +2386,7 @@ __webpack_require__.r(__webpack_exports__);
       this.saving = true;
       this.message = false;
       _js_api_movies__WEBPACK_IMPORTED_MODULE_0__["default"].create(this.movie).then(function (response) {
-        _this.message = 'Movie Created';
+        _this.message = 'Movie created. You be redirected to the edit page.';
         setTimeout(function () {
           return _this.$router.push({
             name: 'movies.edit',
@@ -2456,6 +2462,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2478,7 +2486,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.saving = true;
       _js_api_movies__WEBPACK_IMPORTED_MODULE_0__["default"]["delete"](this.movie.id).then(function (response) {
-        _this.message = 'Movie Deleted';
+        _this.message = 'Movie deleted. You will be redirected back to the index';
         setTimeout(function () {
           return _this.$router.push({
             name: 'movies'
@@ -2500,7 +2508,7 @@ __webpack_require__.r(__webpack_exports__);
         description: this.movie.description,
         genre_type: this.movie.genre_type
       }).then(function (response) {
-        _this2.message = 'Movie updated';
+        _this2.message = 'Movie updated. You will be redirected back to the index.';
         setTimeout(function () {
           return _this2.$router.push({
             name: 'movies'
@@ -3930,13 +3938,19 @@ var render = function() {
   return _c("div", [
     _c("h1", [_vm._v("Create an Actor")]),
     _vm._v(" "),
-    _vm.message
-      ? _c(
-          "div",
-          { staticClass: "alert alert-danger", attrs: { role: "alert" } },
-          [_vm._v(_vm._s(_vm.message))]
-        )
-      : _vm._e(),
+    _c("div", { staticClass: "row" }, [
+      _vm.message
+        ? _c(
+            "div",
+            {
+              staticClass: "alert alert-danger",
+              staticStyle: { width: "100%" },
+              attrs: { role: "alert" }
+            },
+            [_vm._v(_vm._s(_vm.message))]
+          )
+        : _vm._e()
+    ]),
     _vm._v(" "),
     _c(
       "form",
@@ -4035,13 +4049,19 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.message
-      ? _c(
-          "div",
-          { staticClass: "alert alert-danger", attrs: { role: "alert" } },
-          [_vm._v(_vm._s(_vm.message))]
-        )
-      : _vm._e(),
+    _c("div", { staticClass: "row" }, [
+      _vm.message
+        ? _c(
+            "div",
+            {
+              staticClass: "alert alert-danger",
+              staticStyle: { width: "100%" },
+              attrs: { role: "alert" }
+            },
+            [_vm._v(_vm._s(_vm.message))]
+          )
+        : _vm._e()
+    ]),
     _vm._v(" "),
     !_vm.loaded
       ? _c("div", [_vm._v("Loading...")])
@@ -4316,7 +4336,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", { staticClass: "lead" }, [
         _vm._v(
-          "Complete with CRUD, bulk deletions, images, mobile-friendly styling and a radical personality."
+          "Complete with CRUD, mobile-friendly styling, seeded data and a radical personality."
         )
       ])
     ])
@@ -4487,9 +4507,19 @@ var render = function() {
   return _c("div", [
     _c("h1", [_vm._v("Create a Movie")]),
     _vm._v(" "),
-    _vm.message
-      ? _c("div", { staticClass: "alert" }, [_vm._v(_vm._s(_vm.message))])
-      : _vm._e(),
+    _c("div", { staticClass: "row" }, [
+      _vm.message
+        ? _c(
+            "div",
+            {
+              staticClass: "alert alert-danger",
+              staticStyle: { width: "100%" },
+              attrs: { role: "alert" }
+            },
+            [_vm._v(_vm._s(_vm.message))]
+          )
+        : _vm._e()
+    ]),
     _vm._v(" "),
     _c(
       "form",
@@ -4718,13 +4748,19 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.message
-      ? _c(
-          "div",
-          { staticClass: "alert alert-danger", attrs: { role: "alert" } },
-          [_vm._v(_vm._s(_vm.message))]
-        )
-      : _vm._e(),
+    _c("div", { staticClass: "row" }, [
+      _vm.message
+        ? _c(
+            "div",
+            {
+              staticClass: "alert alert-danger",
+              staticStyle: { width: "100%" },
+              attrs: { role: "alert" }
+            },
+            [_vm._v(_vm._s(_vm.message))]
+          )
+        : _vm._e()
+    ]),
     _vm._v(" "),
     !_vm.loaded
       ? _c("div", [_vm._v("Loading...")])
