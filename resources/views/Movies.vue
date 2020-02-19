@@ -7,21 +7,38 @@
           <p><button @click.prevent="fetchData">Try Again</button></p>
         </div>
 
-        <ul v-if="movies">
-            <li 
-              v-for="(movie, id) in movies"
-              :key="id"
-            >
-                <strong>Title:</strong> {{ movie.title }},
-                <strong>Release Date:</strong> {{ movie.release_date }},
-                <strong>Description:</strong> {{ movie.description }},
-                <strong>Genre Type:</strong> {{ movie.genre_type }} |
-                <router-link :to="`/movies/${movie.id}/edit`">Edit</router-link>
-            </li>
-        </ul>
+        <div v-if="movies">
+            <div>
+                <router-link :to="{ name: 'movies.create' }">
+                    <button type="button" class="btn btn-primary">Add Movie</button>
+                </router-link>
+            </div>
 
-        <div>
-            <router-link :to="{ name: 'movies.create' }">Add Movie</router-link>
+            <div class="row py-2">
+                <div
+                    class="col-sm-12 col-md-6 col-lg-4 px-1 py-1"
+                    v-for="(movie, id) in movies"
+                    :key="id"
+                >
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ movie.title }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ movie.description }}</h6>
+                            <p class="card-text"><strong>Release Date:</strong> {{ movie.release_date }}</p>
+                            <p class="card-text"><strong>Genre Type:</strong> {{ movie.genre_type }}</p>
+                            <router-link :to="`/movies/${movie.id}/edit`">
+                                <button type="button" class="btn btn-secondary">Edit</button>
+                            </router-link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <router-link :to="{ name: 'movies.create' }">
+                    <button type="button" class="btn btn-primary">Add Movie</button>
+                </router-link>
+            </div>
         </div>
     </div>
 </template>

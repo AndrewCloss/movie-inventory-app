@@ -6,19 +6,36 @@
           <p>{{ error }}</p>
           <p><button @click.prevent="fetchData">Try Again</button></p>
         </div>
+        
+        <div v-if="actors">
+            <div>
+                <router-link :to="{ name: 'actors.create' }">
+                    <button type="button" class="btn btn-primary">Add Actor</button>
+                </router-link>
+            </div>
 
-        <ul v-if="actors">
-            <li 
-              v-for="(actor, id) in actors"
-              :key="id"
-            >
-                <strong>Name:</strong> {{ actor.name }} |
-                <router-link :to="`/actors/${actor.id}/edit`">Edit</router-link>
-            </li>
-        </ul>
+            <div class="row py-2">
+                <div
+                    class="col-sm-6 col-md-3 px-1 py-1"
+                    v-for="(actor, id) in actors"
+                    :key="id"
+                >
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ actor.name }}</h5>
+                            <router-link :to="`/actors/${actor.id}/edit`">
+                                <button type="button" class="btn btn-secondary">Edit</button>
+                            </router-link>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div>
-            <router-link :to="{ name: 'actors.create' }">Add Actor</router-link>
+            <div>
+            <router-link :to="{ name: 'actors.create' }">
+                <button type="button" class="btn btn-primary">Add Actor</button>
+            </router-link>
+        </div>
         </div>
     </div>
 </template>

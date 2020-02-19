@@ -1,21 +1,22 @@
 <template>
     <div>
         <h1>Create an Actor</h1>
-        <div v-if="message" class="alert">{{ message }}</div>
-        <form @submit.prevent="onSubmit($event)">
-            <div class="form-group">
-                <label for="actor_name">Name</label>
-                <input id="actor_name" v-model="actor.name" />
+        <div v-if="message" class="alert alert-danger" role="alert">{{ message }}</div>
+        <form @submit.prevent="onSubmit($event)" class="jumbotron">
+            <div class="row">
+                <div class="form-group col-sm-12">
+                    <div class="form-group">
+                        <label for="actor_name">Name</label>
+                        <input id="actor_name" v-model="actor.name" />
+                    </div>
+                </div>
             </div>
 
             <div class="form-group">
-                <button><router-link :to="{ name: 'actors' }">Back</router-link></button>
-            </div>
-
-            <div class="form-group">
-              <button type="submit" :disabled="saving">
-                  {{ saving ? 'Creating...' : 'Create' }}
-              </button>
+                <router-link :to="{ name: 'actors' }"><button type="button" class="btn btn-secondary">Back</button></router-link>
+                <button type="submit" class="btn btn-primary" :disabled="saving">
+                    {{ saving ? 'Creating...' : 'Create' }}
+                </button>
             </div>
         </form>
     </div>

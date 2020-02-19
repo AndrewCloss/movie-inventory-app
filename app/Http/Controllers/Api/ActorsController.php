@@ -11,7 +11,7 @@ class ActorsController extends Controller
 {
     public function index()
     {
-        return ActorResource::collection(Actor::paginate(5));
+        return ActorResource::collection(Actor::all());
     }
 
     public function show(Actor $actor)

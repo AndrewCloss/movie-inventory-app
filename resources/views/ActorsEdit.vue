@@ -1,17 +1,21 @@
 <template>
     <div>
-        <div v-if="message" class="alert">{{ message }}</div>
+        <div v-if="message" class="alert alert-danger" role="alert">{{ message }}</div>
         <div v-if="!loaded">Loading...</div>
-        <form @submit.prevent="onSubmit($event)" v-else>
-            <div class="form-group">
-                <label for="actor_name">Name</label>
-                <input id="actor_name" v-model="actor.name" />
+        <form @submit.prevent="onSubmit($event)" v-else class="jumbotron">
+            <div class="row">
+                <div class="form-group col-sm-12">
+                    <div class="form-group">
+                        <label for="actor_name">Name</label>
+                        <input style="height:2em;" id="actor_name" v-model="actor.name" />
+                    </div>
+                </div>
             </div>
 
             <div class="form-group">
-                <button><router-link :to="{ name: 'actors' }">Back</router-link></button>
-                <button type="submit" :disabled="saving">Update</button>
-                <button :disabled="saving" @click.prevent="onDelete($event)">Delete</button>
+                <router-link :to="{ name: 'actors' }"><button type="button" class="btn btn-secondary">Back</button></router-link>
+                <button type="submit" class="btn btn-primary" :disabled="saving">Update</button>
+                <button type="button" class="btn btn-danger" :disabled="saving" @click.prevent="onDelete($event)">Delete</button>
             </div>
         </form>
     </div>

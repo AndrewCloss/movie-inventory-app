@@ -2,43 +2,46 @@
     <div>
         <h1>Create a Movie</h1>
         <div v-if="message" class="alert">{{ message }}</div>
-        <form @submit.prevent="onSubmit($event)">
-            <div class="form-group">
-                <label for="movie_title">Title</label>
-                <input id="movie_title" v-model="movie.title" />
+        <form @submit.prevent="onSubmit($event)" class="jumbotron">
+            <div class="row">
+                <div class="form-group col-sm-9">
+                    <label for="movie_title">Title</label>
+                    <textarea style="width:100%; height:3em;" id="movie_title" v-model="movie.title"></textarea>
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="movie_release_date">Release Date</label>
+                    <input style="width:100%; height:2em;" id="movie_release_date" v-model="movie.release_date" />
+                </div>
             </div>
-            <div class="form-group">
-                <label for="movie_release_date">Release Date</label>
-                <input id="movie_release_date" v-model="movie.release_date" />
-            </div>
-            <div class="form-group">
-                <label for="movie_description">Description</label>
-                <input id="movie_description" v-model="movie.description" />
-            </div>
-            
-            <div class="form-group">            
-                <label for="movie_genre_type">Genre Type</label>
-                <select v-model="movie.genre_type">
-                    <option disabled value="">Please select one</option>
-                    <option value="horror">Horror</option>
-                    <option value="comedy">Comedy</option>
-                    <option value="scifi">Sci-fi</option>
-                    <option value="romance">Romance</option>
-                    <option value="action">Action</option>
-                    <option value="drama">Drama</option>
-                    <option value="documentary">Documentary</option>
-                    <option value="crime">Crime</option>
-                </select>
+
+            <div class="row">
+                <div class="form-group col-sm-9 form-group">
+                    <label for="movie_description">Description</label>
+                    <textarea style="width:100%; height:6em;" id="movie_description" v-model="movie.description"></textarea>
+                </div>
+                
+                <div class="form-group col-sm-3 form-group">
+                    <label for="movie_genre_type">Genre Type</label>
+                    <select style="width:100%; height:2em;" v-model="movie.genre_type">
+                        <option disabled value="">Please select one</option>
+                        <option value="horror">Horror</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="scifi">Sci-fi</option>
+                        <option value="romance">Romance</option>
+                        <option value="action">Action</option>
+                        <option value="drama">Drama</option>
+                        <option value="documentary">Documentary</option>
+                        <option value="crime">Crime</option>
+                        <option value="fantasy">Fantasy</option>
+                    </select>
+                </div>
             </div>
 
             <div class="form-group">
-                <button><router-link :to="{ name: 'movies' }">Back</router-link></button>
-            </div>
-
-            <div class="form-group">
-              <button type="submit" :disabled="saving">
-                  {{ saving ? 'Creating...' : 'Create' }}
-              </button>
+                <router-link :to="{ name: 'movies' }"><button type="button" class="btn btn-secondary">Back</button></router-link>
+                <button type="submit" class="btn btn-primary" :disabled="saving">
+                    {{ saving ? 'Creating...' : 'Create' }}
+                </button>
             </div>
         </form>
     </div>

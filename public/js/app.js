@@ -1934,6 +1934,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1975,6 +1992,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_api_actors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/api/actors */ "./resources/js/api/actors.js");
+//
 //
 //
 //
@@ -2048,6 +2066,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_api_actors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/api/actors */ "./resources/js/api/actors.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -2170,6 +2192,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -2185,6 +2226,23 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2298,6 +2356,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2349,6 +2410,11 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_api_movies__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/api/movies */ "./resources/js/api/movies.js");
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3766,37 +3832,77 @@ var render = function() {
       : _vm._e(),
     _vm._v(" "),
     _vm.actors
-      ? _c(
-          "ul",
-          _vm._l(_vm.actors, function(actor, id) {
-            return _c(
-              "li",
-              { key: id },
-              [
-                _c("strong", [_vm._v("Name:")]),
-                _vm._v(" " + _vm._s(actor.name) + " |\n            "),
+      ? _c("div", [
+          _c(
+            "div",
+            [
+              _c("router-link", { attrs: { to: { name: "actors.create" } } }, [
                 _c(
-                  "router-link",
-                  { attrs: { to: "/actors/" + actor.id + "/edit" } },
-                  [_vm._v("Edit")]
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  [_vm._v("Add Actor")]
                 )
-              ],
-              1
-            )
-          }),
-          0
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _c(
-      "div",
-      [
-        _c("router-link", { attrs: { to: { name: "actors.create" } } }, [
-          _vm._v("Add Actor")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "row py-2" },
+            _vm._l(_vm.actors, function(actor, id) {
+              return _c(
+                "div",
+                { key: id, staticClass: "col-sm-6 col-md-3 px-1 py-1" },
+                [
+                  _c("div", { staticClass: "card" }, [
+                    _c(
+                      "div",
+                      { staticClass: "card-body" },
+                      [
+                        _c("h5", { staticClass: "card-title" }, [
+                          _vm._v(_vm._s(actor.name))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "router-link",
+                          { attrs: { to: "/actors/" + actor.id + "/edit" } },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-secondary",
+                                attrs: { type: "button" }
+                              },
+                              [_vm._v("Edit")]
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                ]
+              )
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            [
+              _c("router-link", { attrs: { to: { name: "actors.create" } } }, [
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  [_vm._v("Add Actor")]
+                )
+              ])
+            ],
+            1
+          )
         ])
-      ],
-      1
-    )
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -3825,12 +3931,17 @@ var render = function() {
     _c("h1", [_vm._v("Create an Actor")]),
     _vm._v(" "),
     _vm.message
-      ? _c("div", { staticClass: "alert" }, [_vm._v(_vm._s(_vm.message))])
+      ? _c(
+          "div",
+          { staticClass: "alert alert-danger", attrs: { role: "alert" } },
+          [_vm._v(_vm._s(_vm.message))]
+        )
       : _vm._e(),
     _vm._v(" "),
     _c(
       "form",
       {
+        staticClass: "jumbotron",
         on: {
           submit: function($event) {
             $event.preventDefault()
@@ -3839,52 +3950,64 @@ var render = function() {
         }
       },
       [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "actor_name" } }, [_vm._v("Name")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.actor.name,
-                expression: "actor.name"
-              }
-            ],
-            attrs: { id: "actor_name" },
-            domProps: { value: _vm.actor.name },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "form-group col-sm-12" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "actor_name" } }, [_vm._v("Name")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.actor.name,
+                    expression: "actor.name"
+                  }
+                ],
+                attrs: { id: "actor_name" },
+                domProps: { value: _vm.actor.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.actor, "name", $event.target.value)
+                  }
                 }
-                _vm.$set(_vm.actor, "name", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c(
-            "button",
-            [
-              _c("router-link", { attrs: { to: { name: "actors" } } }, [
-                _vm._v("Back")
-              ])
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("button", { attrs: { type: "submit", disabled: _vm.saving } }, [
-            _vm._v(
-              "\n              " +
-                _vm._s(_vm.saving ? "Creating..." : "Create") +
-                "\n          "
-            )
+              })
+            ])
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "form-group" },
+          [
+            _c("router-link", { attrs: { to: { name: "actors" } } }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-secondary", attrs: { type: "button" } },
+                [_vm._v("Back")]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                attrs: { type: "submit", disabled: _vm.saving }
+              },
+              [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.saving ? "Creating..." : "Create") +
+                    "\n            "
+                )
+              ]
+            )
+          ],
+          1
+        )
       ]
     )
   ])
@@ -3913,7 +4036,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _vm.message
-      ? _c("div", { staticClass: "alert" }, [_vm._v(_vm._s(_vm.message))])
+      ? _c(
+          "div",
+          { staticClass: "alert alert-danger", attrs: { role: "alert" } },
+          [_vm._v(_vm._s(_vm.message))]
+        )
       : _vm._e(),
     _vm._v(" "),
     !_vm.loaded
@@ -3921,6 +4048,7 @@ var render = function() {
       : _c(
           "form",
           {
+            staticClass: "jumbotron",
             on: {
               submit: function($event) {
                 $event.preventDefault()
@@ -3929,62 +4057,79 @@ var render = function() {
             }
           },
           [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "actor_name" } }, [_vm._v("Name")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.actor.name,
-                    expression: "actor.name"
-                  }
-                ],
-                attrs: { id: "actor_name" },
-                domProps: { value: _vm.actor.name },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "form-group col-sm-12" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "actor_name" } }, [
+                    _vm._v("Name")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.actor.name,
+                        expression: "actor.name"
+                      }
+                    ],
+                    staticStyle: { height: "2em" },
+                    attrs: { id: "actor_name" },
+                    domProps: { value: _vm.actor.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.actor, "name", $event.target.value)
+                      }
                     }
-                    _vm.$set(_vm.actor, "name", $event.target.value)
-                  }
-                }
-              })
+                  })
+                ])
+              ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c(
-                "button",
-                [
-                  _c("router-link", { attrs: { to: { name: "actors" } } }, [
-                    _vm._v("Back")
-                  ])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                { attrs: { type: "submit", disabled: _vm.saving } },
-                [_vm._v("Update")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  attrs: { disabled: _vm.saving },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      return _vm.onDelete($event)
+            _c(
+              "div",
+              { staticClass: "form-group" },
+              [
+                _c("router-link", { attrs: { to: { name: "actors" } } }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "button" }
+                    },
+                    [_vm._v("Back")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "submit", disabled: _vm.saving }
+                  },
+                  [_vm._v("Update")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    attrs: { type: "button", disabled: _vm.saving },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.onDelete($event)
+                      }
                     }
-                  }
-                },
-                [_vm._v("Delete")]
-              )
-            ])
+                  },
+                  [_vm._v("Delete")]
+                )
+              ],
+              1
+            )
           ]
         )
   ])
@@ -4012,30 +4157,128 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h1", [_vm._v("Andrew Closs' Movie Inventory Application")]),
+    _c(
+      "nav",
+      { staticClass: "navbar navbar-expand-md navbar-dark bg-dark mb-4" },
+      [
+        _c(
+          "a",
+          {
+            staticClass: "navbar-brand",
+            attrs: {
+              href: "https://github.com/AndrewCloss/movie-inventory-app"
+            }
+          },
+          [_vm._v("Andrew Closs")]
+        ),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "collapse navbar-collapse",
+            attrs: { id: "navbarCollapse" }
+          },
+          [
+            _c("ul", { staticClass: "navbar-nav mr-auto" }, [
+              _c(
+                "li",
+                { staticClass: "nav-item active" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-link",
+                      attrs: { to: { name: "home" } }
+                    },
+                    [_vm._v("Home")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-link",
+                      attrs: { to: { name: "movies" } }
+                    },
+                    [_vm._v("Movies")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                { staticClass: "nav-item" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "nav-link",
+                      attrs: { to: { name: "actors" } }
+                    },
+                    [_vm._v("Actors")]
+                  )
+                ],
+                1
+              )
+            ])
+          ]
+        )
+      ]
+    ),
     _vm._v(" "),
     _c(
-      "p",
-      [
-        _c("router-link", { attrs: { to: { name: "home" } } }, [
-          _vm._v("Home")
-        ]),
-        _vm._v(" |\n        "),
-        _c("router-link", { attrs: { to: { name: "movies" } } }, [
-          _vm._v("Movies")
-        ]),
-        _vm._v(" |\n        "),
-        _c("router-link", { attrs: { to: { name: "actors" } } }, [
-          _vm._v("Actors")
-        ])
-      ],
+      "div",
+      { staticClass: "container", attrs: { role: "main" } },
+      [_c("router-view")],
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "container" }, [_c("router-view")], 1)
+    _vm._m(1)
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarCollapse",
+          "aria-controls": "navbarCollapse",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation"
+        }
+      },
+      [_c("span", { staticClass: "navbar-toggler-icon" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", { staticClass: "pt-2 my-md-3 pt-md-3 border-top" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("span", { staticClass: "text-muted" }, [
+          _vm._v("@ 2020 Super real copyright: andrew.closs@gmail.com")
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -4064,10 +4307,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("p", [_vm._v("This is the homepage")]),
+    return _c("div", { staticClass: "jumbotron" }, [
+      _c("h1", { staticClass: "display-4" }, [
+        _vm._v("Welcome to the most extreme Movie Inventory application!")
+      ]),
       _vm._v(" "),
-      _c("p", [_vm._v("its me ya boi")])
+      _c("hr", { staticClass: "my-4" }),
+      _vm._v(" "),
+      _c("p", { staticClass: "lead" }, [
+        _vm._v(
+          "Complete with CRUD, bulk deletions, images, mobile-friendly styling and a radical personality."
+        )
+      ])
     ])
   }
 ]
@@ -4119,43 +4370,96 @@ var render = function() {
       : _vm._e(),
     _vm._v(" "),
     _vm.movies
-      ? _c(
-          "ul",
-          _vm._l(_vm.movies, function(movie, id) {
-            return _c(
-              "li",
-              { key: id },
-              [
-                _c("strong", [_vm._v("Title:")]),
-                _vm._v(" " + _vm._s(movie.title) + ",\n            "),
-                _c("strong", [_vm._v("Release Date:")]),
-                _vm._v(" " + _vm._s(movie.release_date) + ",\n            "),
-                _c("strong", [_vm._v("Description:")]),
-                _vm._v(" " + _vm._s(movie.description) + ",\n            "),
-                _c("strong", [_vm._v("Genre Type:")]),
-                _vm._v(" " + _vm._s(movie.genre_type) + " |\n            "),
+      ? _c("div", [
+          _c(
+            "div",
+            [
+              _c("router-link", { attrs: { to: { name: "movies.create" } } }, [
                 _c(
-                  "router-link",
-                  { attrs: { to: "/movies/" + movie.id + "/edit" } },
-                  [_vm._v("Edit")]
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  [_vm._v("Add Movie")]
                 )
-              ],
-              1
-            )
-          }),
-          0
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _c(
-      "div",
-      [
-        _c("router-link", { attrs: { to: { name: "movies.create" } } }, [
-          _vm._v("Add Movie")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "row py-2" },
+            _vm._l(_vm.movies, function(movie, id) {
+              return _c(
+                "div",
+                {
+                  key: id,
+                  staticClass: "col-sm-12 col-md-6 col-lg-4 px-1 py-1"
+                },
+                [
+                  _c("div", { staticClass: "card" }, [
+                    _c(
+                      "div",
+                      { staticClass: "card-body" },
+                      [
+                        _c("h5", { staticClass: "card-title" }, [
+                          _vm._v(_vm._s(movie.title))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "h6",
+                          { staticClass: "card-subtitle mb-2 text-muted" },
+                          [_vm._v(_vm._s(movie.description))]
+                        ),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "card-text" }, [
+                          _c("strong", [_vm._v("Release Date:")]),
+                          _vm._v(" " + _vm._s(movie.release_date))
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "card-text" }, [
+                          _c("strong", [_vm._v("Genre Type:")]),
+                          _vm._v(" " + _vm._s(movie.genre_type))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "router-link",
+                          { attrs: { to: "/movies/" + movie.id + "/edit" } },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-secondary",
+                                attrs: { type: "button" }
+                              },
+                              [_vm._v("Edit")]
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                ]
+              )
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            [
+              _c("router-link", { attrs: { to: { name: "movies.create" } } }, [
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  [_vm._v("Add Movie")]
+                )
+              ])
+            ],
+            1
+          )
         ])
-      ],
-      1
-    )
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -4190,6 +4494,7 @@ var render = function() {
     _c(
       "form",
       {
+        staticClass: "jumbotron",
         on: {
           submit: function($event) {
             $event.preventDefault()
@@ -4198,168 +4503,194 @@ var render = function() {
         }
       },
       [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "movie_title" } }, [_vm._v("Title")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.movie.title,
-                expression: "movie.title"
-              }
-            ],
-            attrs: { id: "movie_title" },
-            domProps: { value: _vm.movie.title },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.movie, "title", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "movie_release_date" } }, [
-            _vm._v("Release Date")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.movie.release_date,
-                expression: "movie.release_date"
-              }
-            ],
-            attrs: { id: "movie_release_date" },
-            domProps: { value: _vm.movie.release_date },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.movie, "release_date", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "movie_description" } }, [
-            _vm._v("Description")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.movie.description,
-                expression: "movie.description"
-              }
-            ],
-            attrs: { id: "movie_description" },
-            domProps: { value: _vm.movie.description },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.movie, "description", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "movie_genre_type" } }, [
-            _vm._v("Genre Type")
-          ]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "form-group col-sm-9" }, [
+            _c("label", { attrs: { for: "movie_title" } }, [_vm._v("Title")]),
+            _vm._v(" "),
+            _c("textarea", {
               directives: [
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.movie.genre_type,
-                  expression: "movie.genre_type"
+                  value: _vm.movie.title,
+                  expression: "movie.title"
                 }
               ],
+              staticStyle: { width: "100%", height: "3em" },
+              attrs: { id: "movie_title" },
+              domProps: { value: _vm.movie.title },
               on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.movie,
-                    "genre_type",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.movie, "title", $event.target.value)
                 }
               }
-            },
-            [
-              _c("option", { attrs: { disabled: "", value: "" } }, [
-                _vm._v("Please select one")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "horror" } }, [_vm._v("Horror")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "comedy" } }, [_vm._v("Comedy")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "scifi" } }, [_vm._v("Sci-fi")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "romance" } }, [
-                _vm._v("Romance")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "action" } }, [_vm._v("Action")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "drama" } }, [_vm._v("Drama")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "documentary" } }, [
-                _vm._v("Documentary")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "crime" } }, [_vm._v("Crime")])
-            ]
-          )
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group col-sm-3" }, [
+            _c("label", { attrs: { for: "movie_release_date" } }, [
+              _vm._v("Release Date")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.movie.release_date,
+                  expression: "movie.release_date"
+                }
+              ],
+              staticStyle: { width: "100%", height: "2em" },
+              attrs: { id: "movie_release_date" },
+              domProps: { value: _vm.movie.release_date },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.movie, "release_date", $event.target.value)
+                }
+              }
+            })
+          ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c(
-            "button",
-            [
-              _c("router-link", { attrs: { to: { name: "movies" } } }, [
-                _vm._v("Back")
-              ])
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("button", { attrs: { type: "submit", disabled: _vm.saving } }, [
-            _vm._v(
-              "\n              " +
-                _vm._s(_vm.saving ? "Creating..." : "Create") +
-                "\n          "
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "form-group col-sm-9 form-group" }, [
+            _c("label", { attrs: { for: "movie_description" } }, [
+              _vm._v("Description")
+            ]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.movie.description,
+                  expression: "movie.description"
+                }
+              ],
+              staticStyle: { width: "100%", height: "6em" },
+              attrs: { id: "movie_description" },
+              domProps: { value: _vm.movie.description },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.movie, "description", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group col-sm-3 form-group" }, [
+            _c("label", { attrs: { for: "movie_genre_type" } }, [
+              _vm._v("Genre Type")
+            ]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.movie.genre_type,
+                    expression: "movie.genre_type"
+                  }
+                ],
+                staticStyle: { width: "100%", height: "2em" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.movie,
+                      "genre_type",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { disabled: "", value: "" } }, [
+                  _vm._v("Please select one")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "horror" } }, [
+                  _vm._v("Horror")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "comedy" } }, [
+                  _vm._v("Comedy")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "scifi" } }, [_vm._v("Sci-fi")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "romance" } }, [
+                  _vm._v("Romance")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "action" } }, [
+                  _vm._v("Action")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "drama" } }, [_vm._v("Drama")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "documentary" } }, [
+                  _vm._v("Documentary")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "crime" } }, [_vm._v("Crime")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "fantasy" } }, [
+                  _vm._v("Fantasy")
+                ])
+              ]
             )
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "form-group" },
+          [
+            _c("router-link", { attrs: { to: { name: "movies" } } }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-secondary", attrs: { type: "button" } },
+                [_vm._v("Back")]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                attrs: { type: "submit", disabled: _vm.saving }
+              },
+              [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.saving ? "Creating..." : "Create") +
+                    "\n            "
+                )
+              ]
+            )
+          ],
+          1
+        )
       ]
     )
   ])
@@ -4388,7 +4719,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _vm.message
-      ? _c("div", { staticClass: "alert" }, [_vm._v(_vm._s(_vm.message))])
+      ? _c(
+          "div",
+          { staticClass: "alert alert-danger", attrs: { role: "alert" } },
+          [_vm._v(_vm._s(_vm.message))]
+        )
       : _vm._e(),
     _vm._v(" "),
     !_vm.loaded
@@ -4396,6 +4731,7 @@ var render = function() {
       : _c(
           "form",
           {
+            staticClass: "jumbotron",
             on: {
               submit: function($event) {
                 $event.preventDefault()
@@ -4404,190 +4740,216 @@ var render = function() {
             }
           },
           [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "movie_title" } }, [_vm._v("Title")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.movie.title,
-                    expression: "movie.title"
-                  }
-                ],
-                attrs: { id: "movie_title" },
-                domProps: { value: _vm.movie.title },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.movie, "title", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "movie_release_date" } }, [
-                _vm._v("Release Date")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.movie.release_date,
-                    expression: "movie.release_date"
-                  }
-                ],
-                attrs: { id: "movie_release_date" },
-                domProps: { value: _vm.movie.release_date },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.movie, "release_date", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "movie_description" } }, [
-                _vm._v("Description")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.movie.description,
-                    expression: "movie.description"
-                  }
-                ],
-                attrs: { id: "movie_description" },
-                domProps: { value: _vm.movie.description },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.movie, "description", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "movie_genre_type" } }, [
-                _vm._v("Genre Type")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "form-group col-sm-9" }, [
+                _c("label", { attrs: { for: "movie_title" } }, [
+                  _vm._v("Title")
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.movie.genre_type,
-                      expression: "movie.genre_type"
+                      value: _vm.movie.title,
+                      expression: "movie.title"
                     }
                   ],
+                  staticStyle: { width: "100%", height: "3em" },
+                  attrs: { id: "movie_title" },
+                  domProps: { value: _vm.movie.title },
                   on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.movie,
-                        "genre_type",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.movie, "title", $event.target.value)
                     }
                   }
-                },
-                [
-                  _c("option", { attrs: { disabled: "", value: "" } }, [
-                    _vm._v("Please select one")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "horror" } }, [
-                    _vm._v("Horror")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "comedy" } }, [
-                    _vm._v("Comedy")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "scifi" } }, [
-                    _vm._v("Sci-fi")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "romance" } }, [
-                    _vm._v("Romance")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "action" } }, [
-                    _vm._v("Action")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "drama" } }, [
-                    _vm._v("Drama")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "documentary" } }, [
-                    _vm._v("Documentary")
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "crime" } }, [_vm._v("Crime")])
-                ]
-              )
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group col-sm-3" }, [
+                _c("label", { attrs: { for: "movie_release_date" } }, [
+                  _vm._v("Release Date")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.movie.release_date,
+                      expression: "movie.release_date"
+                    }
+                  ],
+                  staticStyle: { width: "100%", height: "2em" },
+                  attrs: { id: "movie_release_date" },
+                  domProps: { value: _vm.movie.release_date },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.movie, "release_date", $event.target.value)
+                    }
+                  }
+                })
+              ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c(
-                "button",
-                [
-                  _c("router-link", { attrs: { to: { name: "movies" } } }, [
-                    _vm._v("Back")
-                  ])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                { attrs: { type: "submit", disabled: _vm.saving } },
-                [_vm._v("Update")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  attrs: { disabled: _vm.saving },
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "form-group col-sm-9 form-group" }, [
+                _c("label", { attrs: { for: "movie_description" } }, [
+                  _vm._v("Description")
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.movie.description,
+                      expression: "movie.description"
+                    }
+                  ],
+                  staticStyle: { width: "100%", height: "6em" },
+                  attrs: { id: "movie_description" },
+                  domProps: { value: _vm.movie.description },
                   on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      return _vm.onDelete($event)
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.movie, "description", $event.target.value)
                     }
                   }
-                },
-                [_vm._v("Delete")]
-              )
-            ])
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group col-sm-3 form-group" }, [
+                _c("label", { attrs: { for: "movie_genre_type" } }, [
+                  _vm._v("Genre Type")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.movie.genre_type,
+                        expression: "movie.genre_type"
+                      }
+                    ],
+                    staticStyle: { width: "100%", height: "2em" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.movie,
+                          "genre_type",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { disabled: "", value: "" } }, [
+                      _vm._v("Please select one")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "horror" } }, [
+                      _vm._v("Horror")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "comedy" } }, [
+                      _vm._v("Comedy")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "scifi" } }, [
+                      _vm._v("Sci-fi")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "romance" } }, [
+                      _vm._v("Romance")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "action" } }, [
+                      _vm._v("Action")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "drama" } }, [
+                      _vm._v("Drama")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "documentary" } }, [
+                      _vm._v("Documentary")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "crime" } }, [
+                      _vm._v("Crime")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "fantasy" } }, [
+                      _vm._v("Fantasy")
+                    ])
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "form-group" },
+              [
+                _c("router-link", { attrs: { to: { name: "movies" } } }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "button" }
+                    },
+                    [_vm._v("Back")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "submit", disabled: _vm.saving }
+                  },
+                  [_vm._v("Update")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    attrs: { type: "button", disabled: _vm.saving },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.onDelete($event)
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
+                )
+              ],
+              1
+            )
           ]
         )
   ])
@@ -19768,7 +20130,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_MoviesEdit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../views/MoviesEdit */ "./resources/views/MoviesEdit.vue");
 /* harmony import */ var _views_ActorsEdit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../views/ActorsEdit */ "./resources/views/ActorsEdit.vue");
 /* harmony import */ var _views_MoviesCreate__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../views/MoviesCreate */ "./resources/views/MoviesCreate.vue");
-/* harmony import */ var _views_ActorsCreate__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../views/ActorsCreate */ "./resources/views/ActorsCreate.vue");
+/* harmony import */ var _views_ActorsCreate__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../views/ActorsCreate */ "./resources/views/ActorsCreate.vue");
 /* harmony import */ var _views_PageNotFound__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../views/PageNotFound */ "./resources/views/PageNotFound.vue");
 
 
@@ -19811,7 +20173,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   }, {
     path: '/actors/create',
     name: 'actors.create',
-    component: _views_ActorsCreate__WEBPACK_IMPORTED_MODULE_11__["default"]
+    component: _views_ActorsCreate__WEBPACK_IMPORTED_MODULE_9__["default"]
   }, {
     path: '/404',
     name: '404',
