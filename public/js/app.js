@@ -1910,6 +1910,14 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _js_api_actors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../js/api/actors */ "./resources/js/api/actors.js");
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1952,29 +1960,63 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      loading: false,
+      message: null,
+      loaded: false,
+      saving: false,
       actors: null,
+      actorsToDelete: [],
       error: null
     };
   },
   created: function created() {
     this.fetchData();
   },
-  methods: {
-    fetchData: function fetchData() {
+  watch: {
+    actors: function actors(val) {
       var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/actors').then(function (response) {
+        _this.actors = response.data.data;
+      })["catch"](function (error) {
+        _this.error = error.response.data.message || error.message;
+      });
+    }
+  },
+  methods: {
+    onDelete: function onDelete() {
+      var _this2 = this;
+
+      this.saving = true;
+      this.actorsToDelete.forEach(function (element) {
+        _js_api_actors__WEBPACK_IMPORTED_MODULE_1__["default"]["delete"](element.id).then(function (response) {
+          _this2.actorsToDelete.splice(_this2.actorsToDelete.indexOf(element), 1);
+
+          _this2.message = 'Actor Deleted';
+          setTimeout(function () {
+            return _this2.message = null;
+          }, 2000);
+        })["catch"](function (error) {
+          console.log(error);
+        }).then(function (_) {
+          return _this2.saving = false;
+        });
+      });
+    },
+    fetchData: function fetchData() {
+      var _this3 = this;
 
       this.error = this.actors = null;
       this.loading = true;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/actors').then(function (response) {
-        _this.loading = false;
-        _this.actors = response.data.data;
+        _this3.loading = false;
+        _this3.actors = response.data.data;
       })["catch"](function (error) {
-        _this.loading = false;
-        _this.error = error.response.data.message || error.message;
+        _this3.loading = false;
+        _this3.error = error.response.data.message || error.message;
       });
     }
   }
@@ -2092,6 +2134,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2138,7 +2181,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, 2000);
         _this2.actor = response.data.data;
       })["catch"](function (error) {
-        console.log(error);
+        _this2.message = 'There was an issue creating the actor, check your inputs.';
       }).then(function (_) {
         return _this2.saving = false;
       });
@@ -2204,17 +2247,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -2230,6 +2262,14 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _js_api_movies__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../js/api/movies */ "./resources/js/api/movies.js");
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2275,29 +2315,63 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      loading: false,
+      message: null,
+      loaded: false,
+      saving: false,
       movies: null,
+      moviesToDelete: [],
       error: null
     };
   },
   created: function created() {
     this.fetchData();
   },
-  methods: {
-    fetchData: function fetchData() {
+  watch: {
+    movies: function movies(val) {
       var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/movies').then(function (response) {
+        _this.movies = response.data.data;
+      })["catch"](function (error) {
+        _this.error = error.response.data.message || error.message;
+      });
+    }
+  },
+  methods: {
+    onDelete: function onDelete() {
+      var _this2 = this;
+
+      this.saving = true;
+      this.moviesToDelete.forEach(function (element) {
+        _js_api_movies__WEBPACK_IMPORTED_MODULE_1__["default"]["delete"](element.id).then(function (response) {
+          _this2.moviesToDelete.splice(_this2.moviesToDelete.indexOf(element), 1);
+
+          _this2.message = 'Movie Deleted';
+          setTimeout(function () {
+            return _this2.message = null;
+          }, 2000);
+        })["catch"](function (error) {
+          console.log(error);
+        }).then(function (_) {
+          return _this2.saving = false;
+        });
+      });
+    },
+    fetchData: function fetchData() {
+      var _this3 = this;
 
       this.error = this.movies = null;
       this.loading = true;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/movies').then(function (response) {
-        _this.loading = false;
-        _this.movies = response.data.data;
+        _this3.loading = false;
+        _this3.movies = response.data.data;
       })["catch"](function (error) {
-        _this.loading = false;
-        _this.error = error.response.data.message || error.message;
+        _this3.loading = false;
+        _this3.error = error.response.data.message || error.message;
       });
     }
   }
@@ -2464,6 +2538,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2516,7 +2591,7 @@ __webpack_require__.r(__webpack_exports__);
         }, 2000);
         _this2.movie = response.data.data;
       })["catch"](function (error) {
-        console.log(error);
+        _this2.message = 'There was an issue creating the movie, check your inputs.';
       }).then(function (_) {
         return _this2.saving = false;
       });
@@ -3814,6 +3889,20 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "actors" }, [
+    _c("div", { staticClass: "row" }, [
+      _vm.message
+        ? _c(
+            "div",
+            {
+              staticClass: "alert alert-danger",
+              staticStyle: { width: "100%" },
+              attrs: { role: "alert" }
+            },
+            [_vm._v(_vm._s(_vm.message))]
+          )
+        : _vm._e()
+    ]),
+    _vm._v(" "),
     _vm.loading
       ? _c("div", { staticClass: "loading" }, [_vm._v("Loading...")])
       : _vm._e(),
@@ -3847,10 +3936,28 @@ var render = function() {
               _c("router-link", { attrs: { to: { name: "actors.create" } } }, [
                 _c(
                   "button",
-                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button", disabled: _vm.saving }
+                  },
                   [_vm._v("Add Actor")]
                 )
-              ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-danger",
+                  attrs: { type: "button", disabled: _vm.saving },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.onDelete()
+                    }
+                  }
+                },
+                [_vm._v("Delete")]
+              )
             ],
             1
           ),
@@ -3880,11 +3987,60 @@ var render = function() {
                               "button",
                               {
                                 staticClass: "btn btn-secondary",
-                                attrs: { type: "button" }
+                                attrs: { type: "button", disabled: _vm.saving }
                               },
                               [_vm._v("Edit")]
                             )
                           ]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.actorsToDelete,
+                              expression: "actorsToDelete"
+                            }
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "checkbox-" + actor.id
+                          },
+                          domProps: {
+                            value: actor,
+                            checked: Array.isArray(_vm.actorsToDelete)
+                              ? _vm._i(_vm.actorsToDelete, actor) > -1
+                              : _vm.actorsToDelete
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.actorsToDelete,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = actor,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.actorsToDelete = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.actorsToDelete = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.actorsToDelete = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          { attrs: { for: "checkbox-" + actor.id } },
+                          [_vm._v("Delete?")]
                         )
                       ],
                       1
@@ -3902,8 +4058,26 @@ var render = function() {
               _c("router-link", { attrs: { to: { name: "actors.create" } } }, [
                 _c(
                   "button",
-                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button", disabled: _vm.saving }
+                  },
                   [_vm._v("Add Actor")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    attrs: { type: "button", disabled: _vm.saving },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.onDelete()
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
                 )
               ])
             ],
@@ -4049,6 +4223,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("h1", [_vm._v("Edit an Actor")]),
+    _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _vm.message
         ? _c(
@@ -4177,83 +4353,48 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "nav",
-      { staticClass: "navbar navbar-expand-md navbar-dark bg-dark mb-4" },
-      [
-        _c(
-          "a",
-          {
-            staticClass: "navbar-brand",
-            attrs: {
-              href: "https://github.com/AndrewCloss/movie-inventory-app"
-            }
-          },
-          [_vm._v("Andrew Closs")]
-        ),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "collapse navbar-collapse",
-            attrs: { id: "navbarCollapse" }
-          },
-          [
-            _c("ul", { staticClass: "navbar-nav mr-auto" }, [
-              _c(
-                "li",
-                { staticClass: "nav-item active" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { to: { name: "home" } }
-                    },
-                    [_vm._v("Home")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "nav-item" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { to: { name: "movies" } }
-                    },
-                    [_vm._v("Movies")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "nav-item" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { to: { name: "actors" } }
-                    },
-                    [_vm._v("Actors")]
-                  )
-                ],
-                1
-              )
-            ])
-          ]
-        )
-      ]
-    ),
+    _c("nav", { staticClass: "navbar navbar-dark bg-dark mb-4" }, [
+      _c(
+        "div",
+        { staticClass: "navbar-header pull-left" },
+        [
+          _c(
+            "a",
+            {
+              staticClass: "navbar-brand",
+              attrs: {
+                href: "https://github.com/AndrewCloss/movie-inventory-app"
+              }
+            },
+            [_vm._v("Andrew Closs")]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "active text-white",
+              attrs: { to: { name: "home" } }
+            },
+            [_vm._v("Home")]
+          ),
+          _c("span", { staticClass: "text-light" }, [_vm._v(" |")]),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            { staticClass: "text-light", attrs: { to: { name: "movies" } } },
+            [_vm._v("Movies")]
+          ),
+          _c("span", { staticClass: "text-light" }, [_vm._v(" |")]),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            { staticClass: "text-light", attrs: { to: { name: "actors" } } },
+            [_vm._v("Actors")]
+          )
+        ],
+        1
+      )
+    ]),
     _vm._v(" "),
     _c(
       "div",
@@ -4262,30 +4403,10 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _vm._m(1)
+    _vm._m(0)
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "navbar-toggler",
-        attrs: {
-          type: "button",
-          "data-toggle": "collapse",
-          "data-target": "#navbarCollapse",
-          "aria-controls": "navbarCollapse",
-          "aria-expanded": "false",
-          "aria-label": "Toggle navigation"
-        }
-      },
-      [_c("span", { staticClass: "navbar-toggler-icon" })]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -4336,7 +4457,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", { staticClass: "lead" }, [
         _vm._v(
-          "Complete with CRUD, mobile-friendly styling, seeded data and a radical personality."
+          "Complete with CRUD, bulk deletions, mobile-friendly styling, button spam protection, seeded data and a radical personality."
         )
       ])
     ])
@@ -4364,6 +4485,20 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "movies" }, [
+    _c("div", { staticClass: "row" }, [
+      _vm.message
+        ? _c(
+            "div",
+            {
+              staticClass: "alert alert-danger",
+              staticStyle: { width: "100%" },
+              attrs: { role: "alert" }
+            },
+            [_vm._v(_vm._s(_vm.message))]
+          )
+        : _vm._e()
+    ]),
+    _vm._v(" "),
     _vm.loading
       ? _c("div", { staticClass: "loading" }, [_vm._v("Loading...")])
       : _vm._e(),
@@ -4397,10 +4532,28 @@ var render = function() {
               _c("router-link", { attrs: { to: { name: "movies.create" } } }, [
                 _c(
                   "button",
-                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button", disabled: _vm.saving }
+                  },
                   [_vm._v("Add Movie")]
                 )
-              ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-danger",
+                  attrs: { type: "button", disabled: _vm.saving },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.onDelete()
+                    }
+                  }
+                },
+                [_vm._v("Delete")]
+              )
             ],
             1
           ),
@@ -4449,11 +4602,60 @@ var render = function() {
                               "button",
                               {
                                 staticClass: "btn btn-secondary",
-                                attrs: { type: "button" }
+                                attrs: { type: "button", disabled: _vm.saving }
                               },
                               [_vm._v("Edit")]
                             )
                           ]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.moviesToDelete,
+                              expression: "moviesToDelete"
+                            }
+                          ],
+                          attrs: {
+                            type: "checkbox",
+                            id: "checkbox-" + movie.id
+                          },
+                          domProps: {
+                            value: movie,
+                            checked: Array.isArray(_vm.moviesToDelete)
+                              ? _vm._i(_vm.moviesToDelete, movie) > -1
+                              : _vm.moviesToDelete
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.moviesToDelete,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = movie,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.moviesToDelete = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.moviesToDelete = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.moviesToDelete = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          { attrs: { for: "checkbox-" + movie.id } },
+                          [_vm._v("Delete?")]
                         )
                       ],
                       1
@@ -4471,8 +4673,26 @@ var render = function() {
               _c("router-link", { attrs: { to: { name: "movies.create" } } }, [
                 _c(
                   "button",
-                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button", disabled: _vm.saving }
+                  },
                   [_vm._v("Add Movie")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    attrs: { type: "button", disabled: _vm.saving },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.onDelete()
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
                 )
               ])
             ],
@@ -4750,6 +4970,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("h1", [_vm._v("Edit a Movie")]),
+    _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _vm.message
         ? _c(

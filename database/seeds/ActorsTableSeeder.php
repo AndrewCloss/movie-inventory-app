@@ -28,7 +28,11 @@ class ActorsTableSeeder extends Seeder
         ]);
 
         App\Actor::create([
-            'name' => 'Orlando Bloom & Onion'
+            'name' => 'Orlando Bloom'
+        ]);
+
+        App\Actor::create([
+            'name' => 'Daniel \'Frodo\' Radcliffe'
         ]);
 
         App\Actor::create([

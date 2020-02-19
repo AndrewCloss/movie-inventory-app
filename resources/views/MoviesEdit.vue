@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h1>Edit a Movie</h1>
         <div class="row">
             <div v-if="message" class="alert alert-danger" role="alert" style="width:100%;">{{ message }}</div>
         </div>
@@ -88,7 +89,7 @@ export default {
                 setTimeout(() => this.$router.push({ name: 'movies' }), 2000);
             this.movie = response.data.data;
         }).catch(error => {
-            console.log(error)
+            this.message = 'There was an issue creating the movie, check your inputs.';
         }).then(_ => this.saving = false);
     }
   },
