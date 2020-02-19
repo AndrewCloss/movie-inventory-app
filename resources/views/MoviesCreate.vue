@@ -26,15 +26,15 @@
                     <label for="movie_genre_type">Genre Type</label>
                     <select style="width:100%; height:2em;" v-model="movie.genre_type">
                         <option disabled value="">Please select one</option>
-                        <option value="horror">Horror</option>
-                        <option value="comedy">Comedy</option>
-                        <option value="scifi">Sci-fi</option>
-                        <option value="romance">Romance</option>
-                        <option value="action">Action</option>
-                        <option value="drama">Drama</option>
-                        <option value="documentary">Documentary</option>
-                        <option value="crime">Crime</option>
-                        <option value="fantasy">Fantasy</option>
+                        <option value="Horror">Horror</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Sci-fi">Sci-fi</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Action">Action</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Documentary">Documentary</option>
+                        <option value="Crime">Crime</option>
+                        <option value="Fantasy">Fantasy</option>
                     </select>
                 </div>
             </div>

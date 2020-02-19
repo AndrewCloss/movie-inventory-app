@@ -4658,33 +4658,35 @@ var render = function() {
                   _vm._v("Please select one")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "horror" } }, [
+                _c("option", { attrs: { value: "Horror" } }, [
                   _vm._v("Horror")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "comedy" } }, [
+                _c("option", { attrs: { value: "Comedy" } }, [
                   _vm._v("Comedy")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "scifi" } }, [_vm._v("Sci-fi")]),
+                _c("option", { attrs: { value: "Sci-fi" } }, [
+                  _vm._v("Sci-fi")
+                ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "romance" } }, [
+                _c("option", { attrs: { value: "Romance" } }, [
                   _vm._v("Romance")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "action" } }, [
+                _c("option", { attrs: { value: "Action" } }, [
                   _vm._v("Action")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "drama" } }, [_vm._v("Drama")]),
+                _c("option", { attrs: { value: "Drama" } }, [_vm._v("Drama")]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "documentary" } }, [
+                _c("option", { attrs: { value: "Documentary" } }, [
                   _vm._v("Documentary")
                 ]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "crime" } }, [_vm._v("Crime")]),
+                _c("option", { attrs: { value: "Crime" } }, [_vm._v("Crime")]),
                 _vm._v(" "),
-                _c("option", { attrs: { value: "fantasy" } }, [
+                _c("option", { attrs: { value: "Fantasy" } }, [
                   _vm._v("Fantasy")
                 ])
               ]
@@ -4905,39 +4907,39 @@ var render = function() {
                       _vm._v("Please select one")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "horror" } }, [
+                    _c("option", { attrs: { value: "Horror" } }, [
                       _vm._v("Horror")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "comedy" } }, [
+                    _c("option", { attrs: { value: "Comedy" } }, [
                       _vm._v("Comedy")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "scifi" } }, [
+                    _c("option", { attrs: { value: "Sci-fi" } }, [
                       _vm._v("Sci-fi")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "romance" } }, [
+                    _c("option", { attrs: { value: "Romance" } }, [
                       _vm._v("Romance")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "action" } }, [
+                    _c("option", { attrs: { value: "Action" } }, [
                       _vm._v("Action")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "drama" } }, [
+                    _c("option", { attrs: { value: "Drama" } }, [
                       _vm._v("Drama")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "documentary" } }, [
+                    _c("option", { attrs: { value: "Documentary" } }, [
                       _vm._v("Documentary")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "crime" } }, [
+                    _c("option", { attrs: { value: "Crime" } }, [
                       _vm._v("Crime")
                     ]),
                     _vm._v(" "),
-                    _c("option", { attrs: { value: "fantasy" } }, [
+                    _c("option", { attrs: { value: "Fantasy" } }, [
                       _vm._v("Fantasy")
                     ])
                   ]
